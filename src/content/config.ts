@@ -16,10 +16,18 @@ const homeCollection = defineCollection({
         image: z.string().optional(),
     }),
     services:z.array(z.string()),
+    about:z.object({
+        title: z.string(),
+        content:z.string(),
+        button: z.object({
+            label: z.string(),
+            link: z.string(),
+            enable: z.boolean(),
+        })
+    })
   }),
 });
 
-// Pages collection schema
 
 // Export collections
 export const collections = {
