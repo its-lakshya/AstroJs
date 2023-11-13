@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const recentBolgsContent = await getEntryBySlug("home", "recentblogs")
+---
+
+<div class="w-full flex flex-col gap-y-10 h-full justify-center">
+    <div class="text-5xl font-medium ">{recentBolgsContent.data.title}</div>
+    <div class="flex justify-between items-center gap-x-8">
+        {recentBolgsContent.data.services?.map((entry)=> {
+            return (
+                <div class="flex flex-col gap-y-6">
+                {entry.image ?  <Image src={entry.image} alt="recent blog image" class="rounded-md" /> : null}
+                <div class="flex flex-col gap-y-5">
+                    <div class="flex text-sm gap-x-3 ">
+                        <div class="font-bold">{entry.subText}</div>
+                        <div>{entry.count}</div>
+                    </div>
+                    <div class="text-2xl font-medium">{entry.text}</div>
+                    <div class="text-justify">{entry.description}</div>
+                    <a href={recentBolgsContent.data.button?.link} class='w-36 h-9 border border-black flex justify-center items-center rounded-full'>{recentBolgsContent.data.button?.label} &nbsp; &#x2197;</a>
+                </div>
+                </div>
+            )
+        })}
+    </div>
+</div>

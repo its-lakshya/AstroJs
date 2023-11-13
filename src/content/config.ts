@@ -4,7 +4,7 @@ import { defineCollection, z } from "astro:content";
 const homeCollection = defineCollection({
   schema: ({image}) => z.object({
     title: z.string(),
-    content: z.string(),
+    content: z.string().optional(),
     button: z.object({
         label: z.string(),
         link: z.string(),
@@ -16,6 +16,8 @@ const homeCollection = defineCollection({
       text: z.string(),
       count: z.string().optional(),
       image: image().optional(),
+      description: z.string().optional(),
+      subText: z.string().optional(),
     })).optional(),
   }),
 });

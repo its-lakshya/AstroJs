@@ -7,7 +7,7 @@ const portfolioContent = await getEntryBySlug("home", "portfolio");
 <div class="h-full w-full flex flex-col gap-y-12 items-center">
   <div class="flex items-center justify-between ">
     <div class="w-1/4 text-5xl">{portfolioContent.data.title}</div>
-    <div class="w-3/5 text-lg tracking-wide">{portfolioContent.data.content} </div>
+    <div class="w-3/5 text-lg tracking-wide text-justify">{portfolioContent.data.content} </div>
   </div>
   <div class="flex flex-wrap w-full justify-between gap-y-12">
     {portfolioContent.data.services?.map((entry) => {

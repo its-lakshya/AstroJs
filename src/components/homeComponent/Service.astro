@@ -9,10 +9,11 @@ const servicesContent = await getEntryBySlug("home", "services");
 >
   <div class="w-1/3 h-2/3 flex flex-col gap-y-8 justify-between items-center ">
     <div class="text-5xl">{servicesContent.data.title}</div>
-    <Image src={servicesContent.data.bannerImage} alt="services Image" />
+    {servicesContent.data.bannerImage ? <Image src={servicesContent.data.bannerImage} alt="services Image" /> : null}
+    
   </div>
   <div class="w-2/3 h-2/3 flex flex-col items-center justify-between gap-y-12">
-    <div class="text-lg tracking-wide">{servicesContent.data.content}</div>
+    <div class="text-lg tracking-wide text-justify">{servicesContent.data.content}</div>
     <div class="w-full border-t-2">
       {
         servicesContent.data.services?.map((entry) => {
