@@ -1,6 +1,5 @@
 ---
-title: "home"
-page_title: "INSPIRING BRAND EXPERIENCES"
+title: "INSPIRING BRAND EXPERIENCES"
 content: "Our team of experts specializes in web design & Development, branding, content creation, UI/UX Design, Community manage, and more."
 button:
     label: "Our Projects"
@@ -8,16 +7,18 @@ button:
     enable: true
 
 # description
-description: 
-    label: "A forward-thinking digital design studio delivering subtle experiences."
+description: "A forward-thinking digital design studio delivering subtle experiences."
+
+image : ../../assets/landingGroup.png
 
 # services
+bannerImage: ../../assets/landingImage.png
 services:
-    - Web Design
-    - UI/UX design
-    - Web3
-    - Content writing
-    - Branding
+    - text: Web Desingn
+    - text: UI/UX design
+    - text: web3
+    - text: Content writing
+    - text: Branding
 
 about :
     title: "ABOUT US"

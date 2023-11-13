@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const servicesContent = await getEntryBySlug("home", "services");
+---
+
+<div
+  class="bg-black w-full h-screen flex items-center justify-between px-40 text-white gap-x-24"
+>
+  <div class="w-1/3 h-2/3 flex flex-col gap-y-8 justify-between items-center ">
+    <div class="text-5xl">{servicesContent.data.title}</div>
+    <Image src={servicesContent.data.bannerImage} alt="services Image" />
+  </div>
+  <div class="w-2/3 h-2/3 flex flex-col items-center justify-between gap-y-12">
+    <div class="text-lg tracking-wide">{servicesContent.data.content}</div>
+    <div class="w-full border-t-2">
+      {
+        servicesContent.data.services?.map((entry) => {
+          return (
+            <div class="flex items-center justify-between w-full border-b-2 h-20 text-3xl">
+              <div class="flex items-center gap-x-4">
+                <span class="text-[#FAE86E]">{entry.count}</span>
+                <span class="">{entry.text}</span>
+              </div>
+              <span class="text-[#FAE86E]"> &nbsp; &#x2197; </span>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>

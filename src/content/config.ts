@@ -2,29 +2,22 @@ import { defineCollection, z } from "astro:content";
 
 // Blog collection schema
 const homeCollection = defineCollection({
-  schema: z.object({
+  schema: ({image}) => z.object({
     title: z.string(),
-    page_title: z.string(),
     content: z.string(),
-    button:z.object({
+    button: z.object({
         label: z.string(),
         link: z.string(),
         enable: z.boolean(),
-    }),
-    description: z.object({
-        label: z.string(),
-        image: z.string().optional(),
-    }),
-    services:z.array(z.string()),
-    about:z.object({
-        title: z.string(),
-        content:z.string(),
-        button: z.object({
-            label: z.string(),
-            link: z.string(),
-            enable: z.boolean(),
-        })
-    })
+    }).optional(),
+    description: z.string().optional(),
+    image: image().optional(),
+    bannerImage : image().optional(),
+    services:z.array(z.object({
+      text: z.string(),
+      count: z.string().optional(),
+      image: image().optional()
+    })).optional(),
   }),
 });
 
