@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+import twitterIcon from "../assets/twitterIcon.png";
+import facebookIcon from "../assets/facebookIcon.png";
+import instagramIcon from "../assets/instagramIcon.png";
+import youtubeIcon from "../assets/youtubeIcon.png";
+const footerContent = await getEntryBySlug("home", "footer")
+---
+
+<div class="w-full h-full flex flex-col pt-20">
+    <div class="flex px-40 w-full items-start justify-between">
+        <div class="w-80 flex flex-col gap-y-8">
+            {footerContent.data.bannerImage ? <Image src={footerContent.data.bannerImage} alt="logo"/> : null}
+            <div class="text-lg tracking-wide text-justify">{footerContent.data.content}</div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+            <div class="font-semibold">Company</div>
+            <div class="flex flex-col gap-y-2 text-sm">
+            {footerContent.data.services?.map((entry) => {
+                return(
+                    <div>{entry.text}</div>
+                )
+            })}
+            </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+            <div class="font-semibold">Services</div>
+            <div class="flex flex-col gap-y-2 text-sm">
+            {footerContent.data.services?.map((entry) => {
+                return(
+                    <div>{entry.subText}</div>
+                )
+            })}
+            </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+            <div class="font-semibold">Start a Conversation</div>
+            <div class="flex flex-col gap-y-2 text-sm [&>*]:flex [&>*]:gap-x-4">
+                {footerContent.data.additional?.map((entry)=> {
+                    return (
+                        <div class="flex items-center justiy-center">
+                            <div class="w-8 h-8 rounded-full bg-[#FAE86E] flex items-center justify-center"><Image src={entry.image} alt="skype icon"/></div>
+                            {entry.text}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#FFF8F2] w-full h-20 px-40 flex  items-center justify-between mt-20">
+        <div>{footerContent.data.description}</div>
+        <div class="flex gap-x-4">
+        {[twitterIcon,facebookIcon, instagramIcon, youtubeIcon].map((entry) => {
+            return (
+                <Image src={entry} alt="logo"/>
+            )
+        })}
+        </div>
+    </div>
+</div>

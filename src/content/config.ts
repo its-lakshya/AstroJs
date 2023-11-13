@@ -19,6 +19,10 @@ const homeCollection = defineCollection({
       description: z.string().optional(),
       subText: z.string().optional(),
     })).optional(),
+    additional: z.array(z.object({
+      text: z.string(),
+      image: image()
+    })).optional(),
   }),
 });
 
