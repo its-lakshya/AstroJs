@@ -1,6 +1,7 @@
 ---
     import { getEntryBySlug } from "astro:content";
     import { Image } from 'astro:assets';
+    import groupedImage from '../../assets/landingGroup.png'
 
     const landingContent = await getEntryBySlug("home", "index");
     // console.log(landingContent.data?.services)
@@ -12,12 +13,12 @@
         <div class='text-xl text-justify'>{landingContent.data.content}</div>
         <a href={landingContent.data.button?.link} class='w-44 h-12 bg-[#FAE86E] flex justify-center items-center rounded-full'>{landingContent.data.button?.label} &nbsp; &#x2197;</a>
         <div class="flex flex-col gap-y-2 mt-12 w-1/2">
-            <Image src={landingContent.data.image} alt='group image'/>
+            <Image src={groupedImage} alt='group image'/>
             <span>{landingContent.data.description}</span>
         </div>
     </div>
     <div class="flex flex-col items-center justify-center gap-y-4 w-1/3">
-        <Image src={landingContent.data.bannerImage} alt="landing banner image" class=""/>
+        {landingContent.data.bannerImage ? <Image src={landingContent.data.bannerImage} alt="landing banner image" class="w-full "/> : null}
         <div class="flex flex-wrap gap-4">
         {landingContent.data.services?.map((entry)=> {
             return (

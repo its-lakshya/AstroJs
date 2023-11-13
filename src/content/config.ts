@@ -11,12 +11,11 @@ const homeCollection = defineCollection({
         enable: z.boolean(),
     }).optional(),
     description: z.string().optional(),
-    image: image().optional(),
     bannerImage : image().optional(),
     services:z.array(z.object({
       text: z.string(),
       count: z.string().optional(),
-      image: image().optional()
+      image: image().optional(),
     })).optional(),
   }),
 });

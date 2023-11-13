@@ -8,7 +8,7 @@
 
 <div class="h-screen w-full flex items-center justify-between gap-x-20 ">
     <div class="flex flex-col items-center justify-center gap-y-4 w-1/2 h-96">
-        <Image src={aboutContent.data.bannerImage} alt="landing banner image" class="w-full "/>
+        {aboutContent.data.bannerImage ? <Image src={aboutContent.data.bannerImage} alt="about banner image" class="w-full "/> : null}
     </div>
     <div class=" w-1/2 h-auto  flex flex-col gap-y-8 justify-center">
         <div class='text-3xl font-semibold tracking-wide leading-[1.25]'>{aboutContent.data.title}</div>

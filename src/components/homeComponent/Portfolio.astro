@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const portfolioContent = await getEntryBySlug("home", "portfolio");
+---
+
+<div class="h-full w-full flex flex-col gap-y-12 items-center">
+  <div class="flex items-center justify-between ">
+    <div class="w-1/4 text-5xl">{portfolioContent.data.title}</div>
+    <div class="w-3/5 text-lg tracking-wide">{portfolioContent.data.content} </div>
+  </div>
+  <div class="flex flex-wrap w-full justify-between gap-y-12">
+    {portfolioContent.data.services?.map((entry) => {
+        return(
+            <div class=" w-[22.5rem] h-[29rem] flex flex-col items-start justify-between">
+                {entry.image ? <Image src={entry.image} alt="portfolio image"/> : null}
+                <div class="flex flex-col gap-y-1">
+                    <span class="text-xl">{entry.text}</span>
+                    <span class="">{entry.count}</span>
+                </div>
+            </div>
+        )
+    })}
+  </div>
+  <a href={portfolioContent.data.button?.link} class='w-44 h-12 bg-[#FAE86E] flex justify-center items-center rounded-full '>{portfolioContent.data.button?.label} &nbsp; &#x2197;</a>
+</div>
