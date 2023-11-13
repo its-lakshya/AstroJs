@@ -1,27 +1,29 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
-const recentBolgsContent = await getEntryBySlug("home", "recentblogs")
+import { getCollection, getEntries, getEntryBySlug } from "astro:content";
+const recentBolgsContent = await getCollection("blogs")
 ---
 
-<div class="w-full flex flex-col gap-y-10 h-full justify-center">
-    <div class="text-5xl font-medium ">{recentBolgsContent.data.title}</div>
-    <div class="flex justify-between items-center gap-x-8">
-        {recentBolgsContent.data.services?.map((entry)=> {
+<div>
+<div class="w-full flex flex-col gap-y-10 h-full py-20 justify-center ">
+    <div class="text-5xl font-medium ">RECENT BLOGS</div>
+    <div class="flex items-center justify-center gap-x-8 overflow-x-scroll">
+        {recentBolgsContent.map((entry)=> {
             return (
-                <div class="flex flex-col gap-y-6">
-                {entry.image ?  <Image src={entry.image} alt="recent blog image" class="rounded-md" /> : null}
-                <div class="flex flex-col gap-y-5">
-                    <div class="flex text-sm gap-x-3 ">
-                        <div class="font-bold">{entry.subText}</div>
-                        <div>{entry.count}</div>
+                <div class="flex flex-col gap-y-6 w-1/2 ">
+                    {entry.data.bannerImage ?  <Image src={entry.data.bannerImage} alt="recent blog image" class="rounded-md w-[50rem]" /> : null}
+                    <div class="flex flex-col gap-y-5 w-full">
+                        <div class="flex text-sm gap-x-3 ">
+                            <div class="font-bold">{entry.data.tag}</div>
+                            <div>{entry.data.date}</div>
+                        </div>
+                        <div class="text-2xl font-medium">{entry.data.title}</div>
+                        <div class="text-justify h-12 overflow-hidden">{entry.body}</div>
+                        <a href={entry.data.button?.link} class='w-36 h-9 border border-black flex justify-center items-center rounded-full'>{entry.data.button?.label} &nbsp; &#x2197;</a>
                     </div>
-                    <div class="text-2xl font-medium">{entry.text}</div>
-                    <div class="text-justify">{entry.description}</div>
-                    <a href={recentBolgsContent.data.button?.link} class='w-36 h-9 border border-black flex justify-center items-center rounded-full'>{recentBolgsContent.data.button?.label} &nbsp; &#x2197;</a>
-                </div>
                 </div>
             )
         })}
     </div>
+</div>
 </div>
