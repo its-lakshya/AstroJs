@@ -7,7 +7,7 @@ import Logo from "../../src/assets/logo.png";
   <Image src={Logo} alt="logo" class="w-36 h-10" />
   <ul class="flex items-center justify-between w-1/5">
     {
-      [{text:"home", href:"/"},{text:"Blog", href:"/"}, {text:"Docs", href:"/"}, {text:"Contact", href:"/"}].map((element) => {
+      [{text:"home", href:"/"},{text:"Blog", href:"/blog"}, {text:"Docs", href:"/"}, {text:"Contact", href:"/"}].map((element) => {
         return (
           <li class="leading-none text-dark">
             <a href={element.href}>{element.text}</a>

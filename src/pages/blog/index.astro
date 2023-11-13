@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import LetsMakeHappen from "../../components/homeComponent/LetsMakeHappen.astro";
+import BlogHeader from "../../components/blogComponent/BlogHeader.astro";
+import BlogContent from "../../components/blogComponent/BlogContent.astro";
+import RecentBlogs from "../../components/homeComponent/RecentBlogs.astro";
+
+---
+<Layout title="Blog">
+    <div class="w-full my-20" >
+        <div class="mx-40 my-20"><BlogHeader/></div>
+        <div class="mx-40 my-20"><BlogContent/></div>
+        <div class="w-full h-screen px-40 bg-[#FFF8F2]"><RecentBlogs/></div>
+        <div class="w-full h-auto px-40 my-40 "><LetsMakeHappen/></div>
+    </div>  
+</Layout>
