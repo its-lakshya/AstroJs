@@ -9,10 +9,10 @@ const portfolioContent = await getEntryBySlug("home", "portfolio");
     <div class="w-1/4 text-5xl max-lg:w-full max-lg:flex max-lg:justify-center max-lg:text-4xl">{portfolioContent.data.title}</div>
     <div class="w-3/5 text-lg tracking-wide text-justify max-lg:w-full max-lg:text-center">{portfolioContent.data.content} </div>
   </div>
-  <div class="flex flex-wrap w-full justify-between gap-y-12 gap-x-12 max-lg:items-center max-lg:justify-center max-sm:gap-y-4">
+  <div class="flex flex-wrap w-full justify-center gap-y-12 gap-x-12 max-lg:items-center max-lg:justify-center max-sm:gap-y-4">
     {portfolioContent.data.services?.map((entry) => {
         return(
-            <div class=" w-[22.5rem] h-[29rem] flex flex-col items-start justify-between max-md:w-[18rem] max-md:h-[24rem] max-sm:justify-normal max-sm:gap-y-2 ">
+            <div class=" w-[21.9rem] h-[29rem] flex flex-col items-start justify-center gap-y-4 max-md:w-[18rem] max-md:h-[24rem] max-sm:justify-normal max-sm:gap-y-2 ">
                 {entry.image ? <Image src={entry.image} alt="portfolio image"/> : null}
                 <div class="flex flex-col gap-y-1 max-sm:items-center max-sm:justify-center w-full max-sm:gap-y-0">
                     <div class="text-xl max-sm:text-lg">{entry.text}</div>

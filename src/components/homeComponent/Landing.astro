@@ -6,8 +6,8 @@
     const landingContent = await getEntryBySlug("home", "index");
 ---
 
-<div class="h-screen py-24 w-full flex items-center justify-between gap-x-20 max-lg:h-auto max-sm:flex-col-reverse max-sm:gap-y-12">
-    <div class=" w-2/3 h-full flex flex-col gap-y-8 justify-center max-lg:gap-y-4 max-sm:w-full max-sm:items-center max-sm:justify-center">
+<div class="h-auto py-24 w-full flex items-center justify-between gap-x-20 max-xl:h-auto max-sm:flex-col-reverse max-sm:gap-y-12">
+    <div class="w-2/3 h-full flex flex-col gap-y-8 justify-center max-lg:gap-y-4 max-sm:w-full max-sm:items-center max-sm:justify-center">
         <div class='text-7xl tracking-wide leading-[1.25] max-xl:text-6xl max-lg:text-4xl max-sm:text-2xl max-sm:font-semibold'>{landingContent.data.title}</div>
         <div class='text-xl text-justify max-lg:text-lg max-sm:text-base'>{landingContent.data.content}</div>
         <a href={landingContent.data.button?.link} class='w-44 h-12 bg-[#FAE86E] flex justify-center items-center rounded-full'>{landingContent.data.button?.label} &nbsp; &#x2197;</a>
