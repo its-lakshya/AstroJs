@@ -6,22 +6,22 @@
     const landingContent = await getEntryBySlug("home", "index");
 ---
 
-<div class="h-screen py-24 w-full flex items-center justify-between gap-x-20">
-    <div class=" w-2/3 h-full flex flex-col gap-y-8 justify-center">
-        <div class='text-7xl tracking-wide leading-[1.25]'>{landingContent.data.title}</div>
-        <div class='text-xl text-justify'>{landingContent.data.content}</div>
+<div class="h-screen py-24 w-full flex items-center justify-between gap-x-20 max-lg:h-auto max-sm:flex-col-reverse max-sm:gap-y-12">
+    <div class=" w-2/3 h-full flex flex-col gap-y-8 justify-center max-lg:gap-y-4 max-sm:w-full max-sm:items-center max-sm:justify-center">
+        <div class='text-7xl tracking-wide leading-[1.25] max-xl:text-6xl max-lg:text-4xl max-sm:text-2xl max-sm:font-semibold'>{landingContent.data.title}</div>
+        <div class='text-xl text-justify max-lg:text-lg max-sm:text-base'>{landingContent.data.content}</div>
         <a href={landingContent.data.button?.link} class='w-44 h-12 bg-[#FAE86E] flex justify-center items-center rounded-full'>{landingContent.data.button?.label} &nbsp; &#x2197;</a>
-        <div class="flex flex-col gap-y-2 mt-12 w-1/2">
+        <div class="flex flex-col gap-y-2 mt-12 w-1/2 max-lg:w-2/3 max-md:w-full max-sm:items-center">
             <Image src={groupedImage} alt='group image'/>
-            <span>{landingContent.data.description}</span>
+            <span class="max-sm:text-center">{landingContent.data.description}</span>
         </div>
     </div>
-    <div class="flex flex-col items-center justify-center gap-y-4 w-1/3">
-        {landingContent.data.bannerImage ? <Image src={landingContent.data.bannerImage} alt="landing banner image" class="w-full "/> : null}
-        <div class="flex flex-wrap gap-4">
+    <div class="flex flex-col items-center justify-center gap-y-4 w-1/3 max-sm:w-full">
+        {landingContent.data.bannerImage ? <Image src={landingContent.data.bannerImage} alt="landing banner image" class="w-full max-sm:w-full "/> : null}
+        <div class="flex flex-wrap gap-4 max-lg:gap-2">
         {landingContent.data.services?.map((entry)=> {
             return (
-                <div class="w-auto px-4 rounded-full h-10 border border-black flex items-center justify-center">{entry.text}</div>
+                <div class="w-auto px-4 max-lg:px-2 rounded-full h-10 border border-black flex items-center justify-center max-lg:h-6 max-lg:text-sm">{entry.text}</div>
             )
         })}
         </div>

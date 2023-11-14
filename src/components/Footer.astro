@@ -10,11 +10,13 @@ const footerContent = await getEntryBySlug("home", "footer")
 ---
 
 <div class="w-full h-full flex flex-col pt-20">
-    <div class="flex px-40 w-full items-start justify-between">
-        <div class="w-80 flex flex-col gap-y-8">
+    <div class="flex px-40 w-full h-auto items-start justify-between max-xl:px-20 max-md:px-10 max-sm:px-4 
+    max-lg:gapy-y-12 max-lg:flex-col max-lg:items-center max-lg:justify-between max-lg:gap-y-12">
+        <div class="w-80 flex flex-col gap-y-8 max-lg:w-full max-lg:items-center max-lg:gap-y-4">
             {footerContent.data.bannerImage ? <Image src={footerContent.data.bannerImage} alt="logo"/> : null}
-            <div class="text-lg tracking-wide text-justify">{footerContent.data.content}</div>
+            <div class="text-lg tracking-wide text-justify max-lg:w-full max-lg:text-center max-lg:text-base">{footerContent.data.content}</div>
         </div>
+        <div class="w-1/2 max-xl:w-2/3 flex  justify-between max-lg:w-full max-sm:text-sm gap-x-4">
         <div class="flex flex-col gap-y-4">
             <div class="font-semibold">Company</div>
             <div class="flex flex-col gap-y-2 text-sm">
@@ -40,7 +42,7 @@ const footerContent = await getEntryBySlug("home", "footer")
             <div class="flex flex-col gap-y-2 text-sm [&>*]:flex [&>*]:gap-x-4">
                 {footerContent.data.additional?.map((entry)=> {
                     return (
-                        <div class="flex items-center justiy-center">
+                        <div class="flex items-center justiy-center max-sm:gap-x-0">
                             <div class="w-8 h-8 rounded-full bg-[#FAE86E] flex items-center justify-center"><Image src={entry.image} alt="skype icon"/></div>
                             {entry.text}
                         </div>
@@ -48,8 +50,9 @@ const footerContent = await getEntryBySlug("home", "footer")
                 })}
             </div>
         </div>
+        </div>
     </div>
-    <div class="bg-[#FFF8F2] w-full h-20 px-40 flex  items-center justify-between mt-20">
+    <div class="bg-[#FFF8F2] w-full h-20 px-40 flex  items-center justify-between mt-20 max-xl:px-20 max-md:px-10 max-sm:px-4 max-sm:text-base">
         <div>{footerContent.data.description}</div>
         <div class="flex gap-x-4">
         {[twitterIcon,facebookIcon, instagramIcon, youtubeIcon].map((entry) => {

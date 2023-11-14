@@ -5,15 +5,15 @@ const recentBolgsContent = await getCollection("blogs")
 ---
 
 <div>
-<div class="w-full flex flex-col gap-y-10 h-full py-20 justify-center ">
-    <div class="text-5xl font-medium ">RECENT BLOGS</div>
-    <div class="flex items-center justify-center gap-x-8 overflow-x-scroll">
+<div class="w-full flex flex-col gap-y-10 h-full justify-center max-sm:items-center max-sm:py-12">
+    <div class="text-5xl font-medium max-lg:text-4xl ">RECENT BLOGS</div>
+    <div class="flex items-center justify-center gap-x-8 overflow-x-scroll max-sm:flex-col max-sm:gap-y-8">
         {recentBolgsContent.map((entry)=> {
             return (
-                <div class="flex flex-col gap-y-6 w-1/2 ">
+                <div class="flex flex-col gap-y-6 w-1/2 max-sm:gap-y-3 max-md:w-full">
                     {entry.data.bannerImage ?  <Image src={entry.data.bannerImage} alt="recent blog image" class="rounded-md w-[50rem]" /> : null}
-                    <div class="flex flex-col gap-y-5 w-full">
-                        <div class="flex text-sm gap-x-3 ">
+                    <div class="flex flex-col gap-y-5 w-full max-sm:gap-y-2">
+                        <div class="flex text-sm gap-x-3 max-sm:flex-col ">
                             <div class="font-bold">{entry.data.tag}</div>
                             <div>{entry.data.date}</div>
                         </div>

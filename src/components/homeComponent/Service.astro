@@ -5,20 +5,21 @@ const servicesContent = await getEntryBySlug("home", "services");
 ---
 
 <div
-  class="bg-black w-full h-screen flex items-center justify-between px-40 text-white gap-x-24"
+  class="bg-black w-full h-screen flex items-center justify-between px-40 text-white gap-x-24 
+  max-xl:px-20 max-md:px-10 max-sm:px-4 max-lg:gap-x-16 max-sm:flex-col max-sm:h-auto max-sm:py-12 max-sm:gap-y-8"
 >
-  <div class="w-1/3 h-2/3 flex flex-col gap-y-8 justify-between items-center ">
-    <div class="text-5xl">{servicesContent.data.title}</div>
-    {servicesContent.data.bannerImage ? <Image src={servicesContent.data.bannerImage} alt="services Image" /> : null}
+  <div class="w-1/3 h-2/3 flex flex-col gap-y-8 justify-between items-center max-md:gap-y-4 max-sm:w-full">
+    <div class="text-5xl max-lg:text-4xl">{servicesContent.data.title}</div>
+    {servicesContent.data.bannerImage ? <Image src={servicesContent.data.bannerImage} alt="services Image" class="h-72 max-sm:rounded-xl" /> : null}
     
   </div>
-  <div class="w-2/3 h-2/3 flex flex-col items-center justify-between gap-y-12">
-    <div class="text-lg tracking-wide text-justify">{servicesContent.data.content}</div>
+  <div class="w-2/3 h-2/3 flex flex-col items-center justify-between gap-y-12 max-md:gap-y-8 max-md:w-full">
+    <div class="text-lg tracking-wide text-justify max-lg:text-base">{servicesContent.data.content}</div>
     <div class="w-full border-t-2">
       {
         servicesContent.data.services?.map((entry) => {
           return (
-            <div class="flex items-center justify-between w-full border-b-2 h-20 text-3xl">
+            <div class="flex items-center justify-between w-full border-b-2 h-20 text-3xl max-lg:text-2xl max-lg:h-16">
               <div class="flex items-center gap-x-4">
                 <span class="text-[#FAE86E]">{entry.count}</span>
                 <span class="">{entry.text}</span>
